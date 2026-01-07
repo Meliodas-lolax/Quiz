@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quiz do Conhecimento 🧠✨</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="ad">📢 ESPAÇO PARA ANÚNCIO</div>
+
+<div id="app">
+
+<!-- TELA INICIAL -->
+<section id="home" class="screen active">
+  <h1>🧠 Teste os seus conhecimentos!</h1>
+  <p class="subtitle">
+    🎯 Aceite o desafio, avance pelos níveis e prove o quanto você sabe!
+  </p>
+
+  <div class="categories">
+    <div class="card" onclick="startCategory('Saúde')">🩺 Saúde</div>
+    <div class="card" onclick="startCategory('Educação')">🎓 Educação</div>
+    <div class="card" onclick="startCategory('História')">📜 História</div>
+    <div class="card" onclick="startCategory('Tecnologia')">💻 Tecnologia</div>
+    <div class="card" onclick="startCategory('Ciência')">🔬 Ciência</div>
+    <div class="card" onclick="startCategory('Geografia')">🌍 Geografia</div>
+    <div class="card" onclick="startCategory('Esportes')">⚽ Esportes</div>
+    <div class="card" onclick="startCategory('Cultura')">🎭 Cultura Geral</div>
+  </div>
+</section>
+
+<!-- QUIZ -->
+<section id="quiz" class="screen">
+  <button class="back" onclick="goHome()">⬅️ Voltar</button>
+  <h2 id="categoryTitle"></h2>
+
+  <!-- PROGRESSO -->
+  <div class="progress">
+    <div id="progressBar"></div>
+  </div>
+
+  <div class="quiz-box">
+    <div id="level">🏆 Nível 1</div>
+    <div id="timer">⏱️ 15</div>
+
+    <h3 id="question"></h3>
+    <div id="answers"></div>
+  </div>
+</section>
+
+<!-- RESULTADO -->
+<section id="result" class="screen">
+  <button class="back" onclick="goHome()">⬅️ Voltar</button>
+  <h2>🎉 Resultado Final</h2>
+  <p id="scoreText"></p>
+</section>
+
+</div>
+
+<div class="ad">📢 ESPAÇO PARA ANÚNCIO</div>
+
+<!-- ANÚNCIO INTERSTICIAL -->
+<div id="adModal">
+  <div class="adBox">
+    <p>📺 Anúncio termina em <strong><span id="adTime">15</span>s</strong></p>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
