@@ -488,6 +488,58 @@ function goHome(){
 
 }
 
+function startInfinite() {
+  filtered = shuffleArray([...questions]); // Embaralha todas as perguntas
+  current = 0;
+  score = 0;
+  document.getElementById("categoryTitle").innerText = "Modo Infinito";
+  showScreen("quiz");
+  loadInfiniteQuestion();
+}
+
+function loadInfiniteQuestion() {
+  if(current >= filtered.length){
+    filtered = shuffleArray([...questions]); // Reembaralha quando acabar
+    current = 0;
+  }
+
+  timeLeft = 15;
+  document.getElementById("timer").innerText = timeLeft;
+  document.getElementById("question").innerText = filtered[current].q;
+
+  const nivel = Math.ceil((current + 1) / (filtered.length / 4));
+  document.getElementById("level").innerText = `Nível ${nivel}`;
+
+  document.getElementById("progressBar").style.width =
+    ((current / filtered.length) * 100) + "%";
+
+  const answersDiv = document.getElementById("answers");
+  answersDiv.innerHTML = "";
+
+  filtered[current].a.forEach((txt, i) => {
+    const btn = document.createElement("button");
+    btn.innerText = txt;
+    btn.onclick = () => answerInfinite(btn, i);
+    answersDiv.appendChild(btn);
+  });
+
+  timer = setInterval(countdown, 1000);
+}
+
+function answerInfinite(button, index){
+  clearInterval(timer);
+  if(index === filtered[current].r){
+    score++;
+    button.classList.add("correct");
+  } else {
+    button.classList.add("wrong");
+  }
+  setTimeout(() => {
+    current++;
+    loadInfiniteQuestion(); // Vai para a próxima pergunta sem limite
+  }, 600);
+}
+
 /* ================================
 
    📢 ANÚNCIO AUTOMÁTICO
