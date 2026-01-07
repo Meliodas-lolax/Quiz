@@ -488,6 +488,19 @@ function goHome(){
 
 }
 
+/* =========================
+   MODO INFINITO
+========================= */
+
+function shuffleArray(array) {
+  // Embaralha o array de perguntas
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+  return array;
+}
+
 function startInfinite() {
   filtered = shuffleArray([...questions]); // Embaralha todas as perguntas
   current = 0;
@@ -523,7 +536,8 @@ function loadInfiniteQuestion() {
     answersDiv.appendChild(btn);
   });
 
-  timer = setInterval(countdown, 1000);
+  clearInterval(timer); // Evita que vários timers rodem ao mesmo tempo
+  timer = setInterval(countdownInfinite, 1000);
 }
 
 function answerInfinite(button, index){
@@ -536,8 +550,18 @@ function answerInfinite(button, index){
   }
   setTimeout(() => {
     current++;
-    loadInfiniteQuestion(); // Vai para a próxima pergunta sem limite
+    loadInfiniteQuestion(); // Próxima pergunta sem limite
   }, 600);
+}
+
+function countdownInfinite(){
+  timeLeft--;
+  document.getElementById("timer").innerText = timeLeft;
+  if(timeLeft <= 0){
+    clearInterval(timer);
+    current++;
+    loadInfiniteQuestion();
+  }
 }
 
 /* ================================
