@@ -13,17 +13,24 @@
 <section id="home" class="screen active">
   <h1>🧠 Teste os seus conhecimentos!</h1>
   <p class="subtitle">🎯 Aceite o desafio, avance pelos níveis e prove o quanto você sabe!</p>
-  <div class="categories">
-<button id="infiniteBtn" onclick="startInfinite()">Modo Infinito 🔄</button>
-    <div class="card" onclick="startCategory('Saúde')">🩺 Saúde</div>
-    <div class="card" onclick="startCategory('Educação')">🎓 Educação</div>
-    <div class="card" onclick="startCategory('História')">📜 História</div>
-    <div class="card" onclick="startCategory('Tecnologia')">💻 Tecnologia</div>
-    <div class="card" onclick="startCategory('Ciência')">🔬 Ciência</div>
-    <div class="card" onclick="startCategory('Geografia')">🌍 Geografia</div>
-    <div class="card" onclick="startCategory('Esportes')">⚽ Esportes</div>
-    <div class="card" onclick="startCategory('Cultura/Geral')">🎭 Cultura Geral</div>
+<div id="categoriesContainer" class="categories">
+
+  <!-- Botão Modo Infinito como categoria -->
+  <div class="card categoryBtn" id="infiniteBtn" onclick="startInfinite()">
+    Modo Infinito 🔄
   </div>
+
+  <!-- Outras categorias -->
+  <div class="card categoryBtn" onclick="startCategory('Saúde')">Saúde</div>
+  <div class="card categoryBtn" onclick="startCategory('Educação')">Educação</div>
+  <div class="card categoryBtn" onclick="startCategory('História')">História</div>
+  <div class="card categoryBtn" onclick="startCategory('Tecnologia')">Tecnologia</div>
+  <div class="card categoryBtn" onclick="startCategory('Ciência')">Ciência</div>
+  <div class="card categoryBtn" onclick="startCategory('Geografia')">Geografia</div>
+  <div class="card categoryBtn" onclick="startCategory('Esportes')">Esportes</div>
+  <div class="card categoryBtn" onclick="startCategory('Cultura/Geral')">Cultura/Geral</div>
+
+</div>
 </section>
 
 <section id="quiz" class="screen">
