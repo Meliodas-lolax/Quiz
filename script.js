@@ -360,20 +360,22 @@ let timeLeft = 15;
 
 let timer;
 
+function shuffleArray(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+  return array;
+}
+
 function startCategory(cat){
-
   filtered = questions.filter(q => q.c === cat);
-
+  filtered = shuffleArray(filtered); // <-- embaralha perguntas
   current = 0;
-
   score = 0;
-
   document.getElementById("categoryTitle").innerText = cat;
-
   showScreen("quiz");
-
   loadQuestion();
-
 }
 
 function loadQuestion(){
