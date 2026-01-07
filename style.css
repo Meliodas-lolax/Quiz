@@ -203,28 +203,33 @@ h1 {
   text-align: center;
   }
 
-/* ================= BOTÃO MODO INFINITO ================= */
+), 0 0 20px rgba(120,115,245,0.3); }
+}
+
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* BOTÃO MODO INFINITO DENTRO DAS CATEGORIAS */
 #infiniteBtn {
-  position: absolute;
-  top: -40px;
-  left: 50%;
-  transform: translateX(-50%);
   background: linear-gradient(270deg, #ff6ec4, #7873f5, #42f584);
   background-size: 600% 600%;
   color: white;
-  font-size: 1.8rem;
   font-weight: bold;
-  padding: 20px 40px;
-  border: none;
-  border-radius: 25px;
-  cursor: pointer;
-  z-index: 10;
-  box-shadow: 0 0 20px rgba(255,110,196,0.6), 0 0 40px rgba(120,115,245,0.4);
+  box-shadow: 0 0 15px rgba(255,110,196,0.6), 0 0 30px rgba(120,115,245,0.4);
   animation: pulseGlow 2s infinite, gradientMove 6s ease infinite;
-  transition: transform 0.2s;
+  transition: transform 0.2s, box-shadow 0.2s;
 }
 
-/* Pulso e gradiente animado */
+/* Hover */
+#infiniteBtn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 25px rgba(255,110,196,0.8), 0 0 50px rgba(120,115,245,0.6);
+}
+
+/* PULSO E GRADIENTE ANIMADO */
 @keyframes pulseGlow {
   0% { box-shadow: 0 0 10px rgba(255,110,196,0.5), 0 0 20px rgba(120,115,245,0.3); }
   50% { box-shadow: 0 0 30px rgba(255,110,196,0.9), 0 0 60px rgba(120,115,245,0.7); }
