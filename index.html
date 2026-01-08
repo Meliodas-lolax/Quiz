@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="pt">
 <head>
@@ -46,6 +47,10 @@
     <div id="timer"></div>
     <h3 id="question"></h3>
     <div id="answers"></div>
+
+    <!-- Botão Dica -->
+    <button id="hintBtn" onclick="showHint()">💡 Dica</button>
+    <p id="hintText" style="display:none;"></p>
   </div>
 </section>
 
@@ -53,6 +58,9 @@
   <button class="back" onclick="goHome()">⬅️ Voltar</button>
   <h2>🎉 Resultado Final</h2>
   <p id="scoreText"></p>
+
+  <!-- Botão compartilhar no WhatsApp -->
+  <button id="shareBtn" onclick="shareWhatsApp()">📤 Compartilhar no WhatsApp</button>
 </section>
 
 </div>
@@ -84,6 +92,29 @@
 
 <!-- Popunder -->
 <script data-ad-id="1477224" src="https://cdn.clickadilla.com/ad.js"></script>
+
+<script>
+/* ===============================
+  Funções de Dica e WhatsApp
+================================ */
+
+// Função mostrar dica
+function showHint() {
+  const currentQuestion = questions[current]; // 'current' = índice da pergunta atual
+  const hintText = currentQuestion.hint || "Sem dica disponível";
+  const hintElement = document.getElementById("hintText");
+  hintElement.innerText = hintText;
+  hintElement.style.display = "block";
+}
+
+// Função compartilhar no WhatsApp
+function shareWhatsApp() {
+  const scoreText = document.getElementById("scoreText").innerText;
+  const message = encodeURIComponent(`Meu resultado no Quiz do Conhecimento: ${scoreText}! Teste você também!`);
+  const url = `https://wa.me/?text=${message}`;
+  window.open(url, '_blank');
+}
+</script>
 
 </body>
 </html>
